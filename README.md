@@ -35,13 +35,17 @@ if __name__ == "__main__":
     capture_android_traffic()
 ```
 
-## 2. Capturing Traffic with Tcpdump on Android
+## 2. Capturing Traffic with **Tcpdump** on Android
 
-If your Android device has root access, you can use **tcpdump** to capture packets directly on the device.
+Now we’ll capture network traffic directly from the Android device using **tcpdump**. This method doesn’t require root access and allows us to capture packets over Wi-Fi or mobile data.
 
 ### Setup
+1. Install **tcpdump** on the Android device using a package manager (e.g., **Termux**).
+2. Enable **USB Debugging** and connect your Android device to your computer via **ADB**.
+3. Ensure that **tcpdump** is available on your device.
 
-1. **Install tcpdump on Android** (using adb):
-   ```bash
-   adb push tcpdump /data/local/tmp/
-   adb shell chmod +x /data/local/tmp/tcpdump
+### Code
+```bash
+# Capture traffic on Wi-Fi interface (typically wlan0) and save it to a file
+adb shell "tcpdump -i wlan0 -w /sdcard/traffic.pcap"
+
