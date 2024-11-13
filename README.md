@@ -64,4 +64,18 @@ Once you have the `.pcap` file on your Android device, you can transfer it to yo
 
 ```bash
 adb pull /sdcard/traffic.pcap
+
 ```
+
+### Analyzing Captured Traffic
+
+After transferring the `.pcap` file, you can analyze the captured traffic using **Wireshark** or **Pyshark**.
+
+#### Analyzing with **Wireshark**:
+1. Open **Wireshark** on your computer.
+2. Load the `.pcap` file by clicking on **File > Open** and selecting the file.
+3. Use **filters** in Wireshark to inspect specific types of traffic. For example:
+   - **`ip.addr == 192.168.1.1`**: Filter packets related to a specific IP address.
+   - **`tcp.port == 80`**: Filter packets related to HTTP traffic on port 80.
+
+Wireshark provides a rich set of tools to help you visualize and analyze network traffic, such as inspecting protocol details, packet streams, and more.
