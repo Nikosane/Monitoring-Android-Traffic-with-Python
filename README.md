@@ -33,3 +33,15 @@ def capture_android_traffic(interface='wlan0', capture_filter="ip"):
 
 if __name__ == "__main__":
     capture_android_traffic()
+```
+
+## 2. Capturing Traffic with Tcpdump on Android
+
+If your Android device has root access, you can use **tcpdump** to capture packets directly on the device.
+
+### Setup
+
+1. **Install tcpdump on Android** (using adb):
+   ```bash
+   adb push tcpdump /data/local/tmp/
+   adb shell chmod +x /data/local/tmp/tcpdump
