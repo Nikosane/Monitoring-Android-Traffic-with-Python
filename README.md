@@ -48,4 +48,20 @@ Now we’ll capture network traffic directly from the Android device using **tcp
 ```bash
 # Capture traffic on Wi-Fi interface (typically wlan0) and save it to a file
 adb shell "tcpdump -i wlan0 -w /sdcard/traffic.pcap"
+```
 
+
+### Explanation
+- **`-i wlan0`**: This option specifies the network interface to capture packets from. Replace `'wlan0'` with the correct network interface if your Android device uses a different one (e.g., `rmnet0` for mobile data).
+- **`-w /sdcard/traffic.pcap`**: The `-w` option saves the captured packets into a file. Here, the packets will be saved as `traffic.pcap` in the Android device’s `/sdcard/` directory.
+
+After running this command, tcpdump will start capturing packets and saving them to the file `traffic.pcap`.
+
+---
+
+### Transferring the Captured Traffic
+Once you have the `.pcap` file on your Android device, you can transfer it to your computer for analysis. Use the following **ADB** command:
+
+```bash
+adb pull /sdcard/traffic.pcap
+```
