@@ -66,6 +66,7 @@ Once you have the `.pcap` file on your Android device, you can transfer it to yo
 adb pull /sdcard/traffic.pcap
 
 ```
+---
 
 ### Analyzing Captured Traffic
 
