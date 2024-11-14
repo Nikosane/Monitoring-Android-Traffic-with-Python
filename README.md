@@ -92,11 +92,11 @@ Install mitmproxy on your computer:
 pip install mitmproxy
 ```
 
-Start mitmproxy to listen for incoming traffic:
-
-    mitmproxy --mode transparent
-
-    This command starts mitmproxy in transparent mode, allowing it to intercept and display all incoming traffic.
+## Start mitmproxy to listen for incoming traffic:
+```shell
+mitmproxy --mode transparent
+```
+This command starts mitmproxy in transparent mode, allowing it to intercept and display all incoming traffic.
 
     Configure your Android device to use your computer as a proxy:
         Go to Settings > Wi-Fi on your Android device.
@@ -107,7 +107,7 @@ Start mitmproxy to listen for incoming traffic:
         On your Android browser, go to http://mitm.it and download the certificate.
         Follow the prompts to install the certificate, enabling mitmproxy to decrypt HTTPS traffic.
 
-##Code Example for Running mitmproxy as a Python Script
+## Code Example for Running mitmproxy as a Python Script
 
 To automate traffic logging, you can use the mitmdump tool from mitmproxy and log requests with a Python script:
 
@@ -126,13 +126,12 @@ def request(flow: http.HTTPFlow) -> None:
 ```
 ---
 
-Run this script with mitmdump:
+**Run this script with mitmdump:**
 ```bash
 mitmdump -s path_to_your_script.py
 ```
 ---
 
 Explanation
-
-    mitmproxy --mode transparent: Starts mitmproxy in transparent mode, allowing it to intercept all traffic.
-    mitmdump -s path_to_your_script.py: Runs mitmdump with your custom Python script to log and filter requests.
+- **`mitmproxy --mode transparent`**: Starts mitmproxy in transparent mode, allowing it to intercept all traffic.
+- **`mitmdump -s path_to_your_script.py`**: Runs mitmdump with your custom Python script to log and filter requests.
