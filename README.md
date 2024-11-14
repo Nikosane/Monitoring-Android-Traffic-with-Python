@@ -98,14 +98,14 @@ mitmproxy --mode transparent
 ```
 This command starts mitmproxy in transparent mode, allowing it to intercept and display all incoming traffic.
 
-    Configure your Android device to use your computer as a proxy:
-        Go to Settings > Wi-Fi on your Android device.
-        Long-press on the connected Wi-Fi network and select Modify Network.
-        Under Advanced options, set Proxy to Manual and enter your computer’s IP address and mitmproxy’s default port 8080.
+**Configure your Android device to use your computer as a proxy:**
+- Go to Settings > Wi-Fi on your Android device.
+- Long-press on the connected Wi-Fi network and select Modify Network.
+- Under Advanced options, set Proxy to Manual and enter your computer’s IP address and mitmproxy’s default port 8080.
 
-    To intercept HTTPS traffic, install the mitmproxy certificate on your Android device:
-        On your Android browser, go to http://mitm.it and download the certificate.
-        Follow the prompts to install the certificate, enabling mitmproxy to decrypt HTTPS traffic.
+**To intercept HTTPS traffic, install the mitmproxy certificate on your Android device:**
+- On your Android browser, go to http://mitm.it and download the certificate.
+- Follow the prompts to install the certificate, enabling mitmproxy to decrypt HTTPS traffic.
 
 ## Code Example for Running mitmproxy as a Python Script
 
