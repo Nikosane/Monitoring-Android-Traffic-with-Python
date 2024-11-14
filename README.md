@@ -188,10 +188,9 @@ To focus only on network-related logs, you can use grep (on Unix-based systems) 
 
 **Explanation**
 
-**`adb logcat`**: Starts capturing logs from the Android device.<br>
-**`grep -i "keyword"`**: Filters logs by keyword, case-insensitive, to find specific network-related messages.<br>
-**`adb shell pm list packages`**: Lists all packages on the device; useful for finding an app’s package name to filter logs for that specific app.
+- **`adb logcat`** : Starts capturing logs from the Android device.<br>
+- **`grep -i "keyword"`** : Filters logs by keyword, case-insensitive, to find specific network-related messages.<br>
+- **`adb shell pm list packages`** : Lists all packages on the device; useful for finding an app’s package name to filter logs for that specific app.
 
 *Note*
-
 *The adb logcat method is suitable for real-time monitoring and basic debugging but may not capture detailed network packets or allow deeper inspection like tcpdump or mitmproxy. For deeper packet analysis, refer back to previous steps.*
