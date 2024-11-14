@@ -59,6 +59,7 @@ After running this command, tcpdump will start capturing packets and saving them
 
 ---
 
+
 ### Transferring the Captured Traffic
 Once you have the `.pcap` file on your Android device, you can transfer it to your computer for analysis. Use the following **ADB** command:
 
@@ -67,6 +68,7 @@ adb pull /sdcard/traffic.pcap
 
 ```
 ---
+
 
 ### Analyzing Captured Traffic
 
@@ -80,6 +82,7 @@ After transferring the `.pcap` file, you can analyze the captured traffic using 
    - **`tcp.port == 80`**: Filter packets related to HTTP traffic on port 80.
 
 Wireshark provides a rich set of tools to help you visualize and analyze network traffic, such as inspecting protocol details, packet streams, and more.
+
 
 
 ## 3. Capturing HTTP/HTTPS Traffic with mitmproxy
@@ -98,6 +101,8 @@ mitmproxy --mode transparent
 ```
 This command starts mitmproxy in transparent mode, allowing it to intercept and display all incoming traffic.
 
+
+
 **Configure your Android device to use your computer as a proxy:**
 - Go to Settings > Wi-Fi on your Android device.
 - Long-press on the connected Wi-Fi network and select Modify Network.
@@ -106,6 +111,8 @@ This command starts mitmproxy in transparent mode, allowing it to intercept and 
 **To intercept HTTPS traffic, install the mitmproxy certificate on your Android device:**
 - On your Android browser, go to http://mitm.it and download the certificate.
 - Follow the prompts to install the certificate, enabling mitmproxy to decrypt HTTPS traffic.
+
+
 
 ## Code Example for Running mitmproxy as a Python Script
 
@@ -124,14 +131,32 @@ def request(flow: http.HTTPFlow) -> None:
     if "example.com" in flow.request.pretty_url:
         print(f"Captured traffic to example.com: {flow.request}")
 ```
+
 ---
 
 **Run this script with mitmdump:**
 ```bash
 mitmdump -s path_to_your_script.py
 ```
----
+
 
 Explanation
 - **`mitmproxy --mode transparent`**: Starts mitmproxy in transparent mode, allowing it to intercept all traffic.
 - **`mitmdump -s path_to_your_script.py`**: Runs mitmdump with your custom Python script to log and filter requests.
+
+---
+
+## 4. Monitoring Network Requests with adb logcat
+
+For basic network debugging, adb logcat can capture logs directly from the Android device, including network-related events. This is helpful for identifying network request errors, connection issues, and general app debugging.
+Setup
+
+Connect your Android device to your computer with USB Debugging enabled.
+
+Open a terminal or command prompt on your computer and run the following command to start capturing logs:
+```
+    adb logcat
+```
+This command outputs all log messages from the device. You may see a lot of information, so filtering by network tags is often helpful.
+
+
