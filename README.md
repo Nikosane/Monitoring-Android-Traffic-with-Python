@@ -155,8 +155,31 @@ Connect your Android device to your computer with USB Debugging enabled.
 
 Open a terminal or command prompt on your computer and run the following command to start capturing logs:
 ```
-    adb logcat
+adb logcat
 ```
 This command outputs all log messages from the device. You may see a lot of information, so filtering by network tags is often helpful.
 
 
+
+**Filtering for Network Logs**
+
+To focus only on network-related logs, you can use grep (on Unix-based systems) to filter relevant log tags. Here are some examples:
+
+- Filter for HTTP logs from WebView-based apps:
+    ```
+    adb logcat | grep -i "chromium"
+    ```
+
+- Filter by specific keywords such as HTTP, HTTPS, or network:
+    ```
+    adb logcat | grep -i "network"
+    ```
+
+- Filter by application-specific tags by using the app’s specific package name. First, find the package name of your target app:
+    ```
+    adb shell pm list packages | grep "your_app_name"
+    ```
+    
+- Then filter logs from that package:
+    ```
+    adb logcat | grep "your.package.name"
