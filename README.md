@@ -160,6 +160,7 @@ adb logcat
 This command outputs all log messages from the device. You may see a lot of information, so filtering by network tags is often helpful.
 
 
+    
 
 **Filtering for Network Logs**
 
@@ -183,3 +184,10 @@ To focus only on network-related logs, you can use grep (on Unix-based systems) 
 - Then filter logs from that package:
     ```
     adb logcat | grep "your.package.name"
+
+
+**Explanation**
+
+**`adb logcat`**: Starts capturing logs from the Android device.
+**`grep -i "keyword"`**: Filters logs by keyword, case-insensitive, to find specific network-related messages.
+**`adb shell pm list packages`**: Lists all packages on the device; useful for finding an app’s package name to filter logs for that specific app.
