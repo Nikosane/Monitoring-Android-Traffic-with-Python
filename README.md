@@ -185,7 +185,6 @@ To focus only on network-related logs, you can use grep (on Unix-based systems) 
     ```
     adb logcat | grep "your.package.name"
 
-
 **Explanation**
 
 - **`adb logcat`** : Starts capturing logs from the Android device.<br>
